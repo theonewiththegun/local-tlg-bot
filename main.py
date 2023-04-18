@@ -1,5 +1,5 @@
-from assistant.tlg import bot
+from assistant.tlg import app
 
 if __name__ == '__main__':
-    bot.bot.log_out()  # to guarantee that the bot won't use the cloud bot api server
-    bot.run_polling()
+    app.bot.log_out()
+    app.run_polling()
