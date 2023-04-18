@@ -15,4 +15,6 @@
     TELEGRAM_LOCAL=1
     ```
    Взять два параметра выше можно тут: https://my.telegram.org/apps
-
+3. ```bash
+   docker compose up -d --build
+   ```
