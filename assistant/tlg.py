@@ -19,6 +19,7 @@ app = (
     .base_url(cfg.BOT_API_SERVER_URL)
     .base_file_url(cfg.BOT_API_FILE_URL)
     .local_mode(True)
+    .read_timeout(60)  # the default timeout is too low to give proper time for file to download
     .build()
 )
 

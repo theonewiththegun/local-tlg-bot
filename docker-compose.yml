@@ -1,8 +1,5 @@
 version: "3"
 
-volumes:
-  bot-api-server-data:
-
 services:
   bot:
     build:
@@ -27,5 +24,5 @@ services:
       - "8081:8081"
       - "8082:8082"
     volumes:
-      - bot-api-server-data:/var/lib/telegram-bot-api/
+      - ./data/bot-api-server/:/var/lib/telegram-bot-api/
 
