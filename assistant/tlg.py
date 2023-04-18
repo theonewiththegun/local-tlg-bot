@@ -6,6 +6,9 @@ from assistant import config as cfg
 bot = (
     ApplicationBuilder()
     .token(cfg.TLG_BOT_TOKEN)
+    .base_url(cfg.BOT_API_SERVER_URL)
+    .base_file_url(cfg.BOT_API_FILE_URL)
+    .local_mode(True)
     .build()
 )
 

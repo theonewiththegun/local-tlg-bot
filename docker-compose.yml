@@ -7,3 +7,17 @@ services:
       context: .
     environment:
       SECRETS_JSON: secrets/config.json
+      LOCAL_BOT_API_SERVER_HOST: bot-api-server
+      LOCAL_BOT_API_SERVER_PORT: 8081
+
+  bot-api-server:
+    image: aiogram/telegram-bot-api:6.6.2
+    platform: linux/amd64
+    env_file:
+      - docker/bot-api-server/.env
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+    volumes:
+      - ./data/bot-api-server/:/etc/telegram/bot/api/
+
