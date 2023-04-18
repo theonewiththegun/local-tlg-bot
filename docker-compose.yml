@@ -1,5 +1,8 @@
 version: "3"
 
+volumes:
+  bot-api-server-data:
+
 services:
   bot:
     build:
@@ -7,19 +10,22 @@ services:
       context: .
     environment:
       SECRETS_JSON: secrets/config.json
+
+      # variables below should match corresponding values of the api server service
       LOCAL_BOT_API_SERVER_HOST: bot-api-server
       LOCAL_BOT_API_SERVER_PORT: 8081
+      LOCAL_FILES_STORE: /var/lib/telegram-bot-api/{BOT_TOKEN}/documents/
     depends_on:
       - bot-api-server
 
   bot-api-server:
     image: aiogram/telegram-bot-api:6.6.2
-    platform: linux/amd64
+    platform: linux/amd64  # need it to test this on a M1 mac
     env_file:
       - docker/bot-api-server/.env
     ports:
       - "8081:8081"
       - "8082:8082"
     volumes:
-      - ./data/bot-api-server/:/var/lib/telegram-bot-api/
+      - bot-api-server-data:/var/lib/telegram-bot-api/
 

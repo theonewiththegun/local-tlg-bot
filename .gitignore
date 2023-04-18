@@ -2,3 +2,6 @@ secrets/*
 !secrets/.gitkeep
 
 docker/bot-api-server/.env
+
+/data
+!/data/bot-api-server/.gitkeep

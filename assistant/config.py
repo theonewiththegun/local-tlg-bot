@@ -22,3 +22,5 @@ BOT_API_FILE_URL = (
         + ':' + BOT_API_SERVER_PORT
         + '/file/bot'
 )
+
+LOCAL_FILES_STORE = os.environ['LOCAL_FILES_STORE']
